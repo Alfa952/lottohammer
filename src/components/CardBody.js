@@ -13,7 +13,7 @@ import document from '../assets/stacked-files.png';
 import load from '../assets/loading.gif';
 
 const initialState = {
-  hours: 2,
+  hours: 1,
   minutes: 0,
   seconds: 0
 };
@@ -55,21 +55,21 @@ const CardBody = React.forwardRef((props, ref) => {
     }
   }
 
-  // const handleScrapeData = async () => {
-  //   try {
-  //     setLoading(true);
-  //     const response = await api.get('scrapper-register');
-  //     setLoading(false);
-  //     setSuccessMsg(response.data.msg);
-  //     fetchData();
-  //     props.reloadData();
-  //     setTimeout(() => setSuccessMsg(''), 10000);
-  //   } catch (err) {
-  //     setLoading(false);
-  //     setErrorMsg('Erro ao extrair dados');
-  //     setTimeout(() => setErrorMsg(''), 10000);
-  //   }
-  // };
+  const handleScrapeData = async () => {
+    try {
+      setLoading(true);
+      const response = await api.get('scrapper-register');
+      setLoading(false);
+      setSuccessMsg(response.data.msg);
+      fetchData();
+      props.reloadData();
+      setTimeout(() => setSuccessMsg(''), 10000);
+    } catch (err) {
+      setLoading(false);
+      setErrorMsg('Erro ao extrair dados');
+      setTimeout(() => setErrorMsg(''), 10000);
+    }
+  };
 
   React.useImperativeHandle(ref, () => ({
     updateExt() {
@@ -77,40 +77,40 @@ const CardBody = React.forwardRef((props, ref) => {
     }
   }));
 
-  // const tick = () => {
-  //   if (time.hours === 0 && time.minutes === 0 && time.seconds === 0) {
-  //     // handleScrapeData();
-  //     setTime({
-  //       hours: 2,
-  //       minutes: 0,
-  //       seconds: 0
-  //     });
-  //   } if (time.minutes === 0 && time.seconds === 0) {
-  //     setTime({
-  //       hours: time.hours - 1,
-  //       minutes: 59,
-  //       seconds: 59
-  //     });
-  //   } else if (time.seconds === 0) {
-  //     setTime({
-  //       hours: time.hours,
-  //       minutes: time.minutes - 1,
-  //       seconds: 59
-  //     });
-  //   } else {
-  //     setTime({
-  //       hours: time.hours,
-  //       minutes: time.minutes,
-  //       seconds: time.seconds - 1
-  //     });
-  //   }
-  // };
+  const tick = () => {
+    if (time.hours === 0 && time.minutes === 0 && time.seconds === 0) {
+      handleScrapeData();
+      setTime({
+        hours: 2,
+        minutes: 0,
+        seconds: 0
+      });
+    } if (time.minutes === 0 && time.seconds === 0) {
+      setTime({
+        hours: time.hours - 1,
+        minutes: 59,
+        seconds: 59
+      });
+    } else if (time.seconds === 0) {
+      setTime({
+        hours: time.hours,
+        minutes: time.minutes - 1,
+        seconds: 59
+      });
+    } else {
+      setTime({
+        hours: time.hours,
+        minutes: time.minutes,
+        seconds: time.seconds - 1
+      });
+    }
+  };
 
-  // useEffect(() => {
-  //   let timerID = setInterval(() => tick(), 1000);
+  useEffect(() => {
+    let timerID = setInterval(() => tick(), 1000);
 
-  //   return () => clearInterval(timerID);
-  // });
+    return () => clearInterval(timerID);
+  });
 
   const handleCloseSuccess = () => {
     setSuccessMsg('');
@@ -144,9 +144,9 @@ const CardBody = React.forwardRef((props, ref) => {
           }
           <div className="card-header">
             <div className="card-item">
-              <div className="opacity-card-item">
+              {/*<div className="opacity-card-item">
                 <p>É Necessário fazer um upgrade no servidor de hospedagem</p>
-              </div>
+              </div>*/}
               <div className="item-inner">
                 <h4>Próxima Atualização</h4>
                 {loading ? (

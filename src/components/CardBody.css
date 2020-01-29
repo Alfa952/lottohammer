@@ -21,7 +21,7 @@
   position: relative;
 }
 
-.card-header .card-item .opacity-card-item {
+/*.card-header .card-item .opacity-card-item {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,7 +41,7 @@
   margin: 0;
   text-align: center;
   padding: 0 15px;
-}
+}*/
 
 .card-header .card-item:nth-child(1) {
   display: flex;
