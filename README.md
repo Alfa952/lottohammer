@@ -1,0 +1,1 @@
+Projeto automatizado Lotto Hammer.

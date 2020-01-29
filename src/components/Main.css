@@ -1,0 +1,12 @@
+.main-content {
+  min-height: calc(100vh - 60px);
+  background-color: #f5f5f5;
+  margin-left: 250px;
+}
+
+.wrap-main-content {
+  padding-top: 10px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+}

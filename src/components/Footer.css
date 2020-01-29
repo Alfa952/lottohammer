@@ -1,0 +1,12 @@
+.footer {
+  background-color: #ffffff;
+  padding: 20px 30px;
+  margin-left: 250px;
+  border-top: 1px solid rgba(0, 0, 0, .075);
+}
+
+.footer h4 {
+  font-size: .95rem;
+  font-weight: 400;
+  color: #5b626b;
+}
